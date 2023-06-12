@@ -1,3 +1,10 @@
+function Destination(name, location, landmarks, timeOfYear, notes) {
+  this.name = name;
+  this.location = location;
+  this.landmarks = landmarks;
+  this.timeOfYear = timeOfYear;
+  this.notes = notes;
+}
 //UI Logic
 // document.getElementById("spain").addEventListener;
 
@@ -31,46 +38,46 @@ Destination.prototype.displayDestination = function () {
   document.getElementById("destination-notes").textContent = this.notes;
 };
 function addDestination(name, location, landmarks, timeOfYear, notes) {
-  const destination = new Destination(name, location, landmarks, timeOfYear, notes);
+  const destination = new Destination(
+    name,
+    location,
+    landmarks,
+    timeOfYear,
+    notes
+  );
   const destinationList = document.getElementById("destination-list");
   const destinationItem = document.createElement("li");
   destinationItem.textContent = name;
   destinationItem.addEventListener("click", function () {
-    place.displayDestination();
+    destination.displayDestination();
   });
-  destinationList.appendChild(destinationItem);
-}
-//Business Logic
-// object Constructor
-function Destination(name, location, landmarks, timeOfYear, notes) {
-  this.name = name;
-  this.location = location;
-  this.landmarks = landmarks;
-  this.timeOfYear = timeOfYear;
-  this.notes = notes;
+  destinationList.append(destinationItem);
 }
 
-// const destinations = [
-//   new Place(
-//     "Spain",
-//     "Europe",
-//     ["Retiro Park", "Plaza de España", "Prado Museum"],
-//     "Spring",
-//     "Visited Madrid and Mallorca"
-//   ),
-//   new Place(
-//     "Medellin",
-//     "Colombia",
-//     ["Guatape", "El Retiro Park", "Comuna 13"],
-//     "spring",
-//     "City of Eternal Spring"
-//   ),
-//   new Place("Berlin", "Germany", ["Berlin Wall", "Bradenburg Gate"], "Spring"),
-//   new Place(
-//     "Santander",
-//     "Colombia",
-//     ["Barichara", "Guane", "San Gil"],
-//     "winter",
-//     "Visited San Gil and Barichara"
-//   ),
-// ];
+//Business Logic
+// object Constructor
+
+addDestination(
+  "Spain",
+  "Europe",
+  "Retiro Park, Plaza de España, Prado Museum",
+  "Spring",
+  "Visited Madrid and Mallorca"
+);
+addDestination(
+  "Medellin",
+  "Colombia",
+  "Guatape",
+  "El Retiro Park",
+  "Comuna 13",
+  "spring",
+  "City of Eternal Spring"
+);
+addDestination("Berlin", "Germany", "Berlin Wall, Bradenburg Gate", "Spring"),
+  addDestination(
+    "Santander",
+    "Colombia",
+    "Barichara, Guane, San Gil",
+    "winter",
+    "Visited San Gil and Barichara"
+  );
