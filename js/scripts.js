@@ -10,8 +10,15 @@ Place.prototype.addDestination = function (destination) {
   this.destinations[destination.id] = destination;
 };
 Place.prototype.assignId = function () {
-    
-}
+  this.currentId += 1;
+  return this.currentId;
+};
+Place.prototype.findDestination = function (id) {
+  if (this.destinations[id] !== undefined) {
+    return this.destinations[id];
+  }
+  return false;
+};
 
 //Business Logic
 // object Constructor
@@ -37,5 +44,11 @@ const destinations = [
     ["Guatape", "El Retiro Park", "Comuna 13"],
     "spring",
     "City of Eternal Spring"
+  ),
+  new Place(
+    "Berlin", 
+  "Germany", 
+  ["Berlin Wall", "Bradenburg Gate"],
+  "Spring"
   ),
 ];
